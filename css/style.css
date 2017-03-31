@@ -1,0 +1,115 @@
+/**
+ ** Defines the styles for the Calculatr Plugin
+ ** @authors Yanik Blake & Rahiem Williams
+ **/
+
+#container * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:10px !important;
+    font-weight: normal;
+    color : #000;
+}
+div#container{
+    max-width:320px !important;
+    min-width:320px !important;
+    background-color:#eee !important;
+    border: 1px solid #d3d3d3 !important;
+}
+
+/** header styles **/
+#container div#header{
+    padding-top: 10px !important;
+    width:100% !important;
+    height: 40px !important;
+    background-color: white !important;
+}
+
+#container div#header > h1{ 
+    padding-left: 10px !important;
+    margin: 0 !important;
+    font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size:16px !important;
+} 
+
+/** output screen Styles **/
+#container div#output-screen{
+    padding: 5px !important;
+}
+
+#container div#output-screen input{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    padding-right: 10px !important;
+    display: block !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-radius: 0px !important;
+    text-align: right !important;
+    box-sizing:border-box !important;
+    font-size: 14px !important;
+}
+
+/** layout styles **/
+
+#container div.row{
+    width:320px !important;
+    padding-left:2px !important;
+    margin-bottom: 3px !important;
+}
+
+#container div.col{
+    display: inline-block !important;
+    min-width:60px !important;
+}
+
+#container div.col button{
+    width: 100% !important;
+    height: 40px !important;
+}
+
+#container button.extend {
+    min-width: 122px !important;
+}
+
+#container div.col sup{
+    position: absolute !important;
+}
+
+
+/** button Styles **/
+.sub{
+    vertical-align: super;
+    font-size:50%;
+}
+#container button.sub{
+    vertical-align:super;
+}
+
+#container button#equal-btn{
+    background-color: #4084F2 !important;  
+    border: 1px solid #2F5BB7 !important;
+    color: #fff !important; 
+    font-weight: bold !important;
+}
+
+#container button.sci-btn{
+    background-color: #D3D3D3 !important;  
+    border: 1px solid #B6B6B6 !important;
+}
+
+#container button.c-btn{
+    background-color: #FFCCCB !important;
+    border: 1px solid #EEA389 !important;
+}
+  
+#container button.num-btn{
+    background-color: #EDEDED !important;
+    border: 1px solid #B6B6B6 !important;
+}
+
+#container button.basic-btn{
+    background-color: #FFFDD0 !important;
+    border: 1px solid #FCEE89 !important;
+} 
