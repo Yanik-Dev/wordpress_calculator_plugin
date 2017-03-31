@@ -1,12 +1,32 @@
 <?php 
 /**
-* Defines the html content to be produced by the shortcode
-* Authors: Yanik Blake & Rahiem Williams
-*/
+ * Defines Calculatr widget.
+ */
+class Calculatr extends WP_Widget {
 
-function get_calculatr(){
-    return <<<EOC
-       <div id="container">
+	/**
+	 * Register widget with WordPress.
+	 */
+	function __construct() {
+		parent::__construct(
+			'Calculatr', // Base ID
+			esc_html__( 'Calculator', 'text_domain' ), // Name
+			array( 'description' => esc_html__('A stylish calculator to perform basic scientific calculations', 'text_domain' ), ) // Args
+		);
+	}
+
+	/**
+	 * Front-end display of widget.
+	 *
+	 * @see WP_Widget::widget()
+	 *
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Saved values from database.
+	 */
+	public function widget( $args, $instance ) {
+		echo $args['before_widget'];
+		echo <<<EOC
+        <div id="container" style="marign-left: -20px !important;">
         <div id="header">
             <h1>Calculatr</h1>
         </div>
@@ -59,13 +79,29 @@ function get_calculatr(){
         </div>
     </div>
 EOC;
+	}
+
+	/**
+	 * Back-end widget form.
+	 *
+	 * @see WP_Widget::form()
+	 *
+	 */
+	public function form( $instance ) {
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'text_domain' );
+		?>
+		<p>
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'text_domain' ); ?></label> 
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+	<?php 
+	}
+
 }
 
-add_shortcode('calculatr', 'get_calculatr');
-
-function add_calc_scripts() {
-  wp_enqueue_style( 'style', plugin_dir_url(__FILE__) . '/css/style.css', array(), '1.1', 'all');
-  wp_enqueue_script( 'script', plugin_dir_url(__FILE__) . '/js/script.js', array ( ), 1.1, true);
+// register Calculatr widget
+function register_Calculatr() {
+    register_widget( 'Calculatr' );
 }
-add_action( 'wp_enqueue_scripts', 'add_calc_scripts' );
+add_action( 'widgets_init', 'register_Calculatr' );
 ?>
